@@ -1,0 +1,4 @@
+discord
+pydub
+python-magic
+pynacl
