@@ -24,10 +24,13 @@ Teraz można zainstalować dowolną wersję IVONY (testowane na wersji rehabilit
 
 # Konfiguracja
 
-Na początku pliku znajduje się zmienna TOKEN, do której należy wpisać swój token do bota. Należy też utworzyć foldery, które są odpytywane przez funkcję clean_cache().
+Na początku pliku znajduje się zmienna TOKEN, do której należy wpisać swój token do bota. Należy też utworzyć foldery, które są odpytywane przez funkcję `clean_cache()`.
 
 # Użycie
-.ivona [tekst], .ivona [plik tekstowy] - wygenerowanie pliku Ivony i wysłanie na kanał
-.play ivona [tekst], .play ivona [plik tekstowy] - wygenerowanie pliku Ivony i odtworzenie na kanale głosowym
-.ivona demo, .play ivona demo - j.w., ale dla wersji demonstracyjnej Ivony, znajdującej się w folderze bin
-.sam, .play sam - j.w., ale dla Microsoft Sam
+`.ivona [tekst]`, `.ivona [plik tekstowy]` - wygenerowanie pliku Ivony i wysłanie na kanał
+
+`.play ivona [tekst]`, `.play ivona [plik tekstowy]` - wygenerowanie pliku Ivony i odtworzenie na kanale głosowym
+
+`.ivona demo`, `.play ivona demo` - j.w., ale dla wersji demonstracyjnej Ivony, znajdującej się w folderze bin
+
+`.sam`, `.play sam` - j.w., ale dla Microsoft Sam
