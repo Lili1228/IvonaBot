@@ -1,0 +1,110 @@
+"IVONA - syntezator mowy, wersja demonstracyjna"
+Copyright (c) 2001-2005, IVO Software Sp. z o. o.
+
+
+Wymienione wy¿ej oprogramowanie mo¿e byæ u¿ywane wy³¹cznie z zachowaniem warunków niniejszej licencji.
+
+
+Licencja na oprogramowanie 
+
+Niniejsza Umowa Licencyjna U¿ytkownika oprogramowania Syntezator mowy IVONA wersja demonstracyjna licencjonowanego przez firmê IVO Software Sp. z o. o. (zwana dalej UMOW¥ LICENCYJN¥) stanowi prawnie wi¹¿¹c¹ umowê pomiêdzy osob¹ fizyczn¹ lub prawn¹ (zwan¹ dalej LICENCJOBIORC¥) i firm¹ IVO Software Sp. z o. o. (zwan¹ dalej LICENCJODAWC¥), której przedmiotem jest produkt okreœlony powy¿ej (zwany dalej OPROGRAMOWANIEM) oraz utworzony przy wykorzystaniu OPROGRAMOWANIA dŸwiêk oraz pliki dŸwiêkowe z syntezowan¹ mow¹ (zwane dalej MOW¥).
+
+Do OPROGRAMOWANIA zalicza siê oprogramowanie komputera ³¹cznie z wszelk¹ dokumentacj¹ elektroniczn¹. Instaluj¹c, kopiuj¹c lub u¿ywaj¹c w jakikolwiek inny sposób OPROGRAMOWANIE, LICENCJOBIORCA zobowi¹zuje siê przestrzegaæ postanowieñ niniejszej UMOWY LICENCYJNEJ. Je¿eli LICENCJOBIORCA nie zgadza siê przestrzegaæ postanowieñ UMOWY LICENCYJNEJ, LICENCJODAWCA nie udziela mu licencji na OPROGRAMOWANIE i MOWÊ. W takim przypadku LICENCJOBIORCA nie ma prawa instalowaæ OPROGRAMOWANIA ani z niego korzystaæ.
+
+LICENCJODAWCA informuje, ¿e OPROGRAMOWANIE jest chronione prawem autorskim, (z wy³¹czeniem fragmentów rozpowszechnianych na zasadach innych licencji) postanowieniami umów miêdzynarodowych oraz innym ustawodawstwem i umowami miêdzynarodowymi o ochronie praw w³asnoœci intelektualnej. 
+
+
+1. Udzielenie licencji. Niniejsza umowa licencyjna przyznaje LICENCJOBIORCY nastêpuj¹ce prawa:
+
+- LICENCJOBIORCA mo¿e zainstalowaæ, u¿ywaæ, wyœwietlaæ, lub w inny sposób korzystaæ interaktywnie (dzia³ania te s¹ ³¹cznie zwane dalej URUCHAMIANIEM) z OPROGRAMOWANIA na jednym, dowolnym urz¹dzeniu elektronicznym.
+
+- LICENCJOBIORCA ma prawo przechowywaæ kopiê OPROGRAMOWANIA na dowolnym urz¹dzeniu do przechowywania danych
+
+- LICENCJOBIORCA mo¿e przy u¿yciu OPROGRAMOWANIA tworzyæ MOWÊ.
+
+- LICENCJOBIORCA mo¿e MOWÊ kopiowaæ, ods³uchiwaæ, modyfikowaæ.
+
+
+2. Ograniczenia licencji
+
+- LICENCJOBIORCA nie mo¿e wynajmowaæ, wydzier¿awiaæ ani wypo¿yczaæ OPROGRAMOWANIA.
+- Odtwarzanie, dekompilacja lub deasemblacja OPROGRAMOWANIA jest zabroniona. 
+- Zabronione jest równie¿ dokonywanie wszelkich modyfikacji OPROGRAMOWANIA lub jego czêœci sk³adowych.
+- Wszystkie prawa, które nie zosta³y wyraŸnie udzielone LICENCJOBIORCY na podstawie niniejszej umowy s¹ zastrze¿one dla LICENCJODAWCY. 
+
+3. Ograniczenia licencji dotycz¹ce MOWY
+
+- LICENCJOBIORCA nie mo¿e wynajmowaæ, wydzier¿awiaæ ani wypo¿yczaæ MOWY.
+- LICENCJOBIORCA nie mo¿e wprowadzaæ do obrotu MOWY ani czerpaæ z niej korzyœci finasowych i/lub rzeczowych.
+- Publiczne odtwarzanie i/lub udostêpnianie MOWY jest zabronione.
+
+4. Licencja na u¿ycie OPROGRAMOWANIA udzielana jest LICENCJOBIORCY bezp³atnie.
+
+5. Mimo, ¿e LICENCJODAWCA przetestowa³‚ OPROGRAMOWANIE i sprawdzi³‚ dokumentacjê do niego, to nie udziela on ¿adnej gwarancji, wyra¿onej lub domniemanej w odniesieniu do OPROGRAMOWANIA lub dokumentacji, jego jakoœci, funkcjonowania oraz odpowiednioœci do konkretnego celu czy wymagañ LICENCJOBIORCY. W rezultacie LICENCJODAWCA udziela licencji na u¿ytkowanie OPROGRAMOWANIA oraz dokumentacji do niego w takiej postaci, w jakiej one wystêpuj¹, zaœ LICENCJOBIORCA przyjmuje na siebie ca³e ryzyko zwi¹zane z ich jakoœci¹ i funkcjonalnoœci¹.
+
+6. Niniejsz¹ umow¹ LICENCJODAWCA wy³¹cza swoj¹ odpowiedzialnoœæ za jak¹kolwiek nieumyœln¹ szkodê (³¹cznie z poœrednimi albo bezpoœrednimi szkodami z tytu³u utraty zysków zwi¹zanych z prowadzeniem przedsiêbiorstwa, szkodami wynik³ymi z przerw w dzia³alnoœci gospodarczej lub utraty lub niemo¿noœci uzyskania informacji gospodarczej oraz innymi szkodami o charakterze maj¹tkowym), bêd¹cê nastêpstwem u¿ywania albo niemo¿liwoœci u¿ycia OPROGRAMOWANIA, nawet je¿eli LICENCJODAWCA zosta³ zawiadomiony o mo¿liwoœci wyst¹pienia takich szkód. Postanowienie niniejsze rozszerza siê równie¿ na firmy.
+
+
+
+
+Pomoc techniczna 
+
+1. LICENCJODAWCA zapewnia pomoc techniczn¹ polegaj¹c¹ na udzielaniu odpowiedzi na pytania przekazywane poczt¹ elektroniczn¹ na podany przez LICENCJODAWCÊ adres i zwi¹zane œciœle z u¿ytkowaniem OPROGRAMOWANIA. LICENCJODAWCA nie gwarantuje rozwi¹zania ka¿dego problemu technicznego, który pojawi siê w zwi¹zku z u¿ytkowaniem OPROGRAMOWANIA.
+
+2. Ka¿de dodatkowe lub nowe sk³adniki OPROGRAMOWANIA przekazane w ramach pomocy technicznej LICENCJOBIORCY stanowi¹ integraln¹ czêœæ OPROGRAMOWANIA i podlegaj¹ postanowieniom niniejszej UMOWY LICENCYJNEJ. 
+
+
+
+Inne licencje
+
+LICENCJODAWCA oœwiadcza, ¿e fragment OPROGRAMOWANIA zosta³ stworzony w oparciu o licencjê CMU oraz Xiph. Wspomniany fragment OPROGRAMOWANIA podlega wszystkim ustaleniom niniejszej licencji. Treœæ licencji CMU oraz Xiph jest za³¹cznikiem nr 1 do niniejszej licencji. 
+
+
+
+
+
+Za³¹cznik nr 1.
+
+Licencja CMU.
+
+                  Language Technologies Institute                  
+                     Carnegie Mellon University                        
+                      Copyright (c) 1999-2003                          
+                        All Rights Reserved.                           
+                                                                       
+  Permission is hereby granted, free of charge, to use and distribute  
+  this software and its documentation without restriction, including   
+  without limitation the rights to use, copy, modify, merge, publish,  
+  distribute, sublicense, and/or sell copies of this work, and to      
+  permit persons to whom this work is furnished to do so, subject to   
+  the following conditions:                                            
+   1. The code must retain the above copyright notice, this list of    
+      conditions and the following disclaimer.                         
+   2. Any modifications must be clearly marked as such.                
+   3. Original authors' names are not deleted.                         
+   4. The authors' names are not used to endorse or promote products   
+      derived from this software without specific prior written        
+      permission.                                                      
+                                                                       
+  CARNEGIE MELLON UNIVERSITY AND THE CONTRIBUTORS TO THIS WORK         
+  DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING      
+  ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO EVENT   
+  SHALL CARNEGIE MELLON UNIVERSITY NOR THE CONTRIBUTORS BE LIABLE      
+  FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN   
+  AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,          
+  ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF       
+  THIS SOFTWARE.                                             
+
+
+Licencja Xiph.
+
+© 2002-2003, Jean-Marc Valin/Xiph.Org Foundation
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    * Neither the name of the Xiph.org Foundation nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+This software is provided by the copyright holders and contributors “as is” and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the foundation or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage. 
