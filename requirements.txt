@@ -2,3 +2,6 @@ discord
 pydub
 python-magic
 pynacl
+# opcjonalne, do konwersji japońskich alfabetów do romaji
+cutlet
+unidic-lite
