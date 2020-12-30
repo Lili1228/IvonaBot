@@ -1,0 +1,25 @@
+List of voices (prefix them with "." or ".play "):
+```
+┌─────────────────────┬───────────┬───────────┐
+│      Language       │  Female   │   Male    │
+├─────────────────────┼───────────┼───────────┤
+│ English (Australia) │ Nicole    │           │
+│ English (Wales)     │ Gwyneth   │ Geraint   │
+│ English (United )   │ Amy       │ Brian     │
+│         (Kingdom)   │ Emma      │           │
+│ English (United)    │ Jennifer  │ Sam       │
+│         (States)    │ Kendra    │ Eric      │
+│                     │ Kimberly  │ Joey      │
+│                     │ Salli     │ Chipmunk  │
+│ child               │ Ivy       │           │
+│ French              │ Céline    │ Mathieu   │
+│ German              │ Marlene   │ Hans      │
+│ Italian             │           │ Giorgio   │
+│ Polish              │ Ewa       │ Demo      │
+│                     │ Maja      │ Jacek     │
+│                     │ Agnieszka │ Jan       │
+│ Romanian            │ Carmen    │           │
+│ Spanish             │ Conchita  │ Enrique   │
+│ Welsh               │ Gwyneth   │ Geraint   │
+└─────────────────────┴───────────┴───────────┘
+```

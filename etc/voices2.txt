@@ -1,0 +1,31 @@
+**List of voices to be used with <voice required="Name=x" />**
+IVONA 2 Agnieszka
+IVONA 2 Amy
+IVONA 2 Brian
+IVONA 2 Carmen
+IVONA 2 Céline
+IVONA 2 Conchita
+IVONA 2 Emma
+IVONA 2 Enrique
+IVONA 2 Eric
+IVONA 2 Ewa
+IVONA 2 Geraint
+IVONA 2 Geraint
+IVONA 2 Giorgio
+IVONA 2 Gwyneth
+IVONA 2 Gwyneth
+IVONA 2 Hans
+IVONA 2 Ivy
+IVONA 2 Jacek
+IVONA 2 Jan
+IVONA 2 Jennifer
+IVONA 2 Joey
+IVONA 2 Kendra
+IVONA 2 Kimberly
+IVONA 2 Maja
+IVONA 2 Marlene
+IVONA 2 Mathieu
+IVONA 2 Nicole
+IVONA 2 Salli
+IVONA 2 Skippy the Chipmunk
+Microsoft Sam
