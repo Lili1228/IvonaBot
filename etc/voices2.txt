@@ -1,14 +1,20 @@
 **List of voices to be used with <voice required="Name=x" />**
 IVONA 2 Agnieszka
 IVONA 2 Amy
+IVONA 2 Astrid
 IVONA 2 Brian
+IVONA 2 Carla
 IVONA 2 Carmen
-IVONA 2 Céline
+IVONA 2 CÚline
+IVONA 2 Chantal
 IVONA 2 Conchita
+IVONA 2 Cristiano
+IVONA 2 Dóra
 IVONA 2 Emma
 IVONA 2 Enrique
 IVONA 2 Eric
 IVONA 2 Ewa
+IVONA 2 Filiz
 IVONA 2 Geraint
 IVONA 2 Geraint
 IVONA 2 Giorgio
@@ -20,12 +26,30 @@ IVONA 2 Jacek
 IVONA 2 Jan
 IVONA 2 Jennifer
 IVONA 2 Joey
+IVONA 2 Karl
 IVONA 2 Kendra
 IVONA 2 Kimberly
+IVONA 2 Lotte
+IVONA 2 Mads
 IVONA 2 Maja
 IVONA 2 Marlene
 IVONA 2 Mathieu
+IVONA 2 Miguel
+IVONA 2 Naja
 IVONA 2 Nicole
+IVONA 2 Penélope
+IVONA 2 Raveena
+IVONA 2 Ricardo
+IVONA 2 Ruben
+IVONA 2 Russell
 IVONA 2 Salli
 IVONA 2 Skippy the Chipmunk
+IVONA 2 Tatyana
+IVONA 2 Vitória
+Microsoft Anna
+Microsoft Lili
+Microsoft Mary
+Microsoft Mike
 Microsoft Sam
+SampleTTSVoice
+ScanSoft Daniel_Full_22kHz

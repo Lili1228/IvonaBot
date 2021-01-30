@@ -3,23 +3,36 @@ List of voices (prefix them with "." or ".play "):
 ┌─────────────────────┬───────────┬───────────┐
 │      Language       │  Female   │   Male    │
 ├─────────────────────┼───────────┼───────────┤
-│ English (Australia) │ Nicole    │           │
+│ Danish              │ Naja      │ Mads      │
+│ Dutch               │ Lotte     │ Ruben     │
+│ English (Australia) │ Nicole    │ Russell   │
 │ English (Wales)     │ Gwyneth   │ Geraint   │
-│ English (United )   │ Amy       │ Brian     │
-│         (Kingdom)   │ Emma      │           │
-│ English (United)    │ Jennifer  │ Sam       │
-│         (States)    │ Kendra    │ Eric      │
-│                     │ Kimberly  │ Joey      │
-│                     │ Salli     │ Chipmunk  │
-│ child               │ Ivy       │           │
+│ English (India)     │ Raveena   │           │
+│ English (United )   │ Amy       │ Daniel    │
+│         (Kingdom)   │ Emma      │ Brian     │
+│ English (United)    │ Anna      │ Sam       │
+│         (States)    │ Jennifer  │ Eric      │
+│                     │ Kendra    │ Joey      │
+│                     │ Kimberly  │ Chipmunk  │
+│                     │ Salli     │           │
+│ children            │ Ivy       │ Justin    │
 │ French              │ Céline    │ Mathieu   │
+│ French (Canada)     │ Chantal   │           │
 │ German              │ Marlene   │ Hans      │
-│ Italian             │           │ Giorgio   │
-│ Polish              │ Ewa       │ Demo      │
-│                     │ Maja      │ Jacek     │
-│                     │ Agnieszka │ Jan       │
+│ Icelandic           │ Dóra      │ Karl      │
+│ Italian             │ Carla     │ Giorgio   │
+│ Norwegian           │ Liv       │           │
+│ Polish              │ Ewa       │ Jacek     │
+│                     │ Maja      │ Jan       │
+│                     │ Agnieszka │           │
+│ Portuguese          │           │ Cristiano │
+│ Portuguese (Brazil) │ Vitória   │ Ricardo   │
 │ Romanian            │ Carmen    │           │
+│ Russian             │ Tatyana   │           │
 │ Spanish             │ Conchita  │ Enrique   │
+│ Spanish (USA)       │ Penélope  │ Miguel    │
+│ Swedish             │ Astrid    │           │
+│ Turkish             │ Filiz     │           │
 │ Welsh               │ Gwyneth   │ Geraint   │
 └─────────────────────┴───────────┴───────────┘
 ```

@@ -3,10 +3,17 @@ import discord, asyncio, time, os
 #tts imports
 import hashlib, magic, random, tempfile
 from datetime import datetime
+from subprocess import Popen
 #to convert wav to flac or ogg if the file is too big
 from pydub import AudioSegment
 #JP to romaji
-import cutlet
+import cutlet, fugashi
+
+katsu = cutlet.Cutlet()
+katsu.use_foreign_spelling = False
+katsu.ensure_ascii = False
+tagger = fugashi.Tagger('-M 512')
+katsu.tagger = tagger
 
 TOKEN = 'INSERT TOKEN HERE'
 client = discord.Client()
@@ -14,9 +21,8 @@ client = discord.Client()
 error_title = ':x: Błąd!'
 queue_size = 3
 
-voices = ('sam', 'demo', 'jacek', 'ewa', 'jennifer', 'carmen', 'eric', 'jan', 'maja', 'brian', 'amy', 'joey', 'kendra', 'kimberly', 'emma', 'chipmunk', 'hans', 'marlene', 'enrique', 'conchita',
-'mathieu', 'céline', 'salli', 'ivy', 'geraint', 'gwyneth', 'nicole', 'agnieszka', 'giorgio')
-voices_diacritics = (('celine', 'céline'))
+voices = ('sam', 'mary', 'mike', 'anna', 'lili', 'daniel', 'ivonademo', 'jacek', 'ewa', 'jennifer', 'carmen', 'eric', 'jan', 'maja', 'brian', 'amy', 'joey', 'kendra', 'kimberly', 'emma', 'chipmunk', 'hans', 'marlene', 'enrique', 'conchita', 'miguel', 'penelope', 'mathieu', 'celine', 'salli', 'ivy', 'geraint', 'gwyneth', 'nicole', 'agnieszka', 'giorgio', 'chantal', 'ricardo', 'vitoria', 'lotte', 'naja', 'karl', 'dora', 'russell', 'carla', 'ruben', 'mads', 'tatyana', 'astrid', 'cristiano', 'filiz', 'raveena')
+voices_diacritics = {'penélope': 'penelope', 'céline': 'celine', 'dóra': 'dora'}
 
 queue={}
 
@@ -27,31 +33,17 @@ async def help(message):
 	embed.add_field(name=".play (voice name)", value="Same as above, but play it on voice chat.")
 	embed.add_field(name=".voices", value="List of voices to be used with above commands.", inline=False)
 	embed.add_field(name=".sapi", value="List of SAPI5 tags for advanced synthesis.", inline=False)
-	embed.add_field(name=".voices2", value="List of voices in a form for two of SAPI5 tags.")
+	embed.add_field(name=".voices2", value="List of voices to be used with one of the SAPI5 tags.", inline=False)
 	embed.add_field(name=".play + media attachment", value="Play sound from attached file on voice chat.", inline=False)
 	embed.add_field(name=".queue", value="Check what's in voice chat queue.", inline=False)
 	embed.add_field(name=".skip", value="Skip to the next sound in queue on voice chat.", inline=False)
 	embed.add_field(name=".remove (number)", value="Remove a sound of given number from voice chat queue.", inline=False)
 	embed.add_field(name=".stop", value="Stop all sounds on voice chat (bot exits automatically after 5 minutes).", inline=False)
-	await message.channel.send(embed=embed)
-
-async def sapi_tags(message):
-	embed=discord.Embed(title=":scroll: List of SAPI5 tags", description='Except for <silence />, all the tags ending with /> can be also used on a block of text, for example `<volume level="50">volume 50</volume> volume 100`.', color=0x008080)
-	embed.add_field(name='<volume level="x" />', value="Set volume, from 0 to 100.", inline=False)
-	embed.add_field(name='<rate absspeed="x" />', value="Set absolute speed, from -10 to 10 (negatives are bugged with IVONA voice).", inline=False)
-	embed.add_field(name='<rate speed="x" />', value="Set relative speed to the current one.")
-	embed.add_field(name='<pitch absmiddle="x" />', value="Set absolute pitch, from -10 to 10.", inline=False)
-	embed.add_field(name='<pitch middle="x" />', value="Set relative pitch to the current one.")
-	embed.add_field(name='<silence msec="x"/>', value="Insert a silence lasting x milliseconds (buggy with IVONA voice, dots can help).", inline=False)
-	embed.add_field(name='<pron sym="x" />', value="Pronounce a phrase using sounds in sym argument separated by spaces. American pronunciation is available at https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms717239(v=vs.85)", inline=False)
-	embed.add_field(name='<partofsp part="x">y</partofsp>', value="Treat `y` as a part of speech `x`, where `x` is one of these: Unknown, Noun, Verb, Modifier, Function, Interjection", inline=False)
-	embed.add_field(name='<context id="x">y</context>', value="Treat `y` in a context `x`. More about contexts at https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723629(v=vs.85)", inline=False)
-	embed.add_field(name='<voice required="x=y,a=b" />', value="Change voice according to `x` and `a` parameters with `y` and `b` values. These include Name (full names required, see .voices2), Gender, Age and Language (locale IDs available at https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a29e5c28-9fb9-4c49-8e43-4b9b8e733a05). Use `!=` instead of `=` if you want a voice with parameter *different* than given. If some of the parameters are unspecified, the new voice is as close as possible to the previous one.", inline=False)
-	embed.add_field(name='<voice optional="x=y,a=b" />', value="Same as voice required, but if no voice with given parameters is available, some of them can be ommited.", inline=False)
-	embed.add_field(name='<lang langid="x" />', value='Same as <voice required="Language=x"/>', inline=False)
-	await message.channel.send(embed=embed)
+	await message.reply(embed=embed)
 
 async def send_and_delete(channel, text=None, embedded=None, timeout=10):
+	if channel.type == text and not channel.permissions_for(channel.guild.get_member(client.user.id)).send_messages:
+		return
 	sending = await channel.send(text, embed=embedded)
 	if not sending:
 		return
@@ -93,7 +85,7 @@ async def show_queue(message):
 	if time.minute >= 30:
 		timedisplay += '30'
 
-	await message.channel.send(embed=discord.Embed(title=':clock' + timedisplay + ': Kolejka', description=desc, color=0x008080))
+	await message.reply(embed=discord.Embed(title=':clock' + timedisplay + ': Kolejka', description=desc, color=0x008080))
 
 async def remove_from_queue(message):
 	if not message.author.voice:
@@ -129,7 +121,7 @@ async def find_vc(channel):
 		return
 
 async def play_sound(message, filename):
-	if not message.author.voice:
+	if not message.guild or not message.author.voice:
 		await send_and_delete(message.channel, embedded=discord.Embed(title=error_title, description='Nie jesteś na czacie głosowym.', color=0xff0000))
 		return
 	channel = message.author.voice.channel
@@ -138,7 +130,7 @@ async def play_sound(message, filename):
 	if not vc:
 		await send_and_delete(message.channel, embedded=discord.Embed(title=error_title, description='Nie można połączyć z czatem głosowym.', color=0xff0000))
 		return
-	sending = await message.channel.send('Done')
+	sending = await message.reply('Done')
 	try:
 		vc.play(discord.FFmpegPCMAudio(filename), after=lambda e: client.loop.create_task(clean_vc(vc, filename)))
 		await sending.delete()
@@ -161,23 +153,26 @@ async def play_uploaded_sound(message):
 	await play_sound(message, filename)
 
 async def create_tts(text, voice, filename):
-	if voice == 'demo':
-		demo_speed = text.split(' ', 1)[0] + ' '
-		if not demo_speed.isnumeric() or int(demo_speed) < 1 or int(demo_speed) > 99:
-			demo_speed = '60 '
+	arg = ''
+	if voice == 'ivonademo':
+		arg = text.split(' ', 1)[0] + ' '
+		if not arg.isnumeric() or int(arg) < 1 or int(arg) > 99:
+			arg = '60 '
 		else:
 			text = text.split(' ', 1)[1]
 		f = open('/tmp/text.txt', 'wb')
-		text = text.replace('…', '...').encode('cp1250', 'ignore')
+		text = text.encode('cp1250', 'ignore')
 	else:
 		f = open('/tmp/text.txt', 'w')
 	f.write(text)
 	f.close()
+	if voice in ('anna', 'lili'):
+		arg = ' -16'
 	if voice == 'ivonademo':
-		os.system('bin/ivonacl -f /tmp/text.txt -l bin/libvoice_pl_jl16demo.so --dur ' + demo_speed + filename + '.wav')
+		os.system('bin/ivonacl -f /tmp/text.txt -l bin/libvoice_pl_jl16demo.so --dur ' + arg + filename + '.wav')
 	else:
-		os.system('wine bin/generate_sapi5.exe -i /tmp/text.txt -n ' + voice + ' -o ' + filename + '.wav 2>/dev/null')
-	if os.stat(filename + '.wav').st_size < 47:
+		os.system('bin/generate_sapi5.exe -i /tmp/text.txt -n ' + voice + arg + ' -o ' + filename + '.wav 2>/dev/null')
+	if os.stat(filename + '.wav').st_size < 315:
 		os.remove(filename + '.wav')
 		return 'empty'
 	if os.stat(filename + '.wav').st_size > 8*1024*1024:
@@ -191,15 +186,31 @@ async def create_tts(text, voice, filename):
 			return '.flac'
 	return '.wav'
 
+async def sapi_tags(message):
+	embed=discord.Embed(title=":scroll: List of SAPI5 tags", description='Except for <silence />, all the tags ending with /> can be also used on a block of text, for example `<volume level="50">volume 50</volume> volume 100`.', color=0x008080)
+	embed.add_field(name='<volume level="x" />', value="Set volume, from 0 to 100.", inline=False)
+	embed.add_field(name='<rate absspeed="x" />', value="Set absolute speed, from -10 to 10.", inline=False)
+	embed.add_field(name='<rate speed="x" />', value="Set relative speed to the current one.")
+	embed.add_field(name='<pitch absmiddle="x" />', value="Set absolute pitch, from -10 to 10.", inline=False)
+	embed.add_field(name='<pitch middle="x" />', value="Set relative pitch to the current one.")
+	embed.add_field(name='<silence msec="x"/>', value="Insert a silence lasting x milliseconds.", inline=False)
+	embed.add_field(name='<pron sym="x" />', value="Pronounce a phrase using sounds in sym argument separated by spaces. American pronunciation is available at https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms717239(v=vs.85)", inline=False)
+	embed.add_field(name='<partofsp part="x">y</partofsp>', value="Treat `y` as a part of speech `x`, where `x` is one of these: Unknown, Noun, Verb, Modifier, Function, Interjection", inline=False)
+	embed.add_field(name='<context id="x">y</context>', value="Treat `y` in a context `x`. More about contexts at https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms723629(v=vs.85)", inline=False)
+	embed.add_field(name='<voice required="x=y,a=b" />', value='Change voice according to `x` and `a` parameters with `y` and `b` values. These include Name (for names, try .voices2), Gender, Age and Language (locale IDs available at https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/a29e5c28-9fb9-4c49-8e43-4b9b8e733a05).', inline=False)
+	embed.add_field(name='<voice optional="x=y,a=b" />', value="Same as voice required, but if no voice with given parameters is available, some of them can be ommited.", inline=False)
+	embed.add_field(name='<lang langid="x" />', value='Same as <voice required="Language=x"/>', inline=False)
+	await message.reply(embed=embed)
+
 async def tts(message, voice, vc = False):
 #parsing text file
 	if message.attachments:
 		if message.attachments[0].size > 8192:
-			await message.channel.send(embed=discord.Embed(title=error_title, description='Maksymalny rozmiar pliku to 8 kB.', color=0xff0000))
+			await message.reply(embed=discord.Embed(title=error_title, description='Maksymalny rozmiar pliku to 8 kB.', color=0xff0000))
 			return
 		await message.attachments[0].save('/tmp/text.txt')
 		if magic.Magic(mime=True).from_file('/tmp/text.txt') != 'text/plain':
-			await message.channel.send(embed=discord.Embed(title=error_title, description='To nie jest plik tekstowy.', color=0xff0000))
+			await message.reply(embed=discord.Embed(title=error_title, description='To nie jest plik tekstowy.', color=0xff0000))
 			return
 		if magic.Magic().from_file('/tmp/text.txt').startswith('Non-ISO extended-ASCII text,'):
 			f = open('/tmp/text.txt', 'r', encoding='cp1250')
@@ -214,17 +225,13 @@ async def tts(message, voice, vc = False):
 		else:
 			text = message.content.split(' ', 1)[1]
 	found = False
-
-#JP to romaji
-    katsu = cutlet.Cutlet()
-	katsu.use_foreign_spelling = False
-	katsu.ensure_ascii = False
-	text = katsu.romaji(' '.join(text.split()))
-#if you remove it, uncomment following line:
-#	text = ' '.join(text.split())
+	if voice == 'lili':
+		text = ' '.join(text.split())
+	else:
+		text = katsu.romaji(' '.join(text.split()))
 	filename = 'cache/' + voice + '/' + hashlib.sha1(text.encode()).hexdigest()
 	async with message.channel.typing():
-		for ext in ['.wav', '.flac', '.ogg']:
+		for ext in ('.wav', '.flac', '.ogg'):
 			if os.path.exists(filename + ext):
 				found = True
 				filename = filename + ext
@@ -237,7 +244,10 @@ async def tts(message, voice, vc = False):
 	if vc:
 		await play_sound(message, filename)
 	else:
-		await message.channel.send(file=discord.File(filename))
+		try:
+			await message.reply(file=discord.File(filename))
+		except:
+			return
 
 async def skip(message, stop=False):
 	vc = await find_vc(message.author.voice.channel)
@@ -255,9 +265,8 @@ async def on_message(message):
 	if message.author == client.user:
 		return
 
-	if not message.channel.permissions_for(message.channel.guild.get_member(client.user.id)).send_messages:
+	if message.guild and not message.channel.permissions_for(message.guild.get_member(client.user.id)).send_messages:
 		return
-
 	text = message.content.casefold()
 	for voice in voices:
 		if text.startswith('.play ' + voice):
@@ -266,12 +275,12 @@ async def on_message(message):
 		elif text.startswith('.' + voice):
 			await tts(message, voice)
 			return
-	for pair in voices_diacritics:
-		if text.startswith('.play ' + pair[0]):
-			await tts(message, pair[1], True)
+	for pair in voices_diacritics.keys():
+		if text.startswith('.play ' + pair):
+			await tts(message, voices_diacritics[pair], True)
 			return
-		elif text.startswith('.' + pair[0]):
-			await tts(message, pair[1])
+		elif text.startswith('.' + pair):
+			await tts(message, voices_diacritics[pair])
 			return
 
 	if text == '.play' and message.attachments:
@@ -283,9 +292,7 @@ async def on_message(message):
 	elif text == '.stop':
 		await skip(message, True)
 	elif text == '.voices':
-		await message.channel.send(open('etc/voices.txt', 'r').read())
-	elif text == '.voices2':
-		await message.channel.send(open('etc/voices2.txt', 'r').read())
+		await message.reply(open('etc/voices.txt', 'r').read())
 	elif text == '.queue':
 		await show_queue(message)
 	elif text.startswith('.sapi'):
