@@ -1,4 +1,3 @@
-List of voices (prefix them with "." or ".play "):
 ```
 ┌─────────────────────┬───────────┬───────────┐
 │      Language       │  Female   │   Male    │
@@ -10,21 +9,24 @@ List of voices (prefix them with "." or ".play "):
 │ English (India)     │ Raveena   │           │
 │ English (United )   │ Amy       │ Daniel    │
 │         (Kingdom)   │ Emma      │ Brian     │
-│ English (United)    │ Anna      │ Sam       │
-│         (States)    │ Jennifer  │ Eric      │
+│ English (United)    │ Mary      │ Sam       │
+│         (States)    │ Anna      │ Mike      │
+│                     │ Jennifer  │ Eric      │
 │                     │ Kendra    │ Joey      │
 │                     │ Kimberly  │ Chipmunk  │
-│                     │ Salli     │           │
-│ children            │ Ivy       │ Justin    │
+│                     │ Salli     │ Dave      │
+│                     │           │ Steven    │
+│ children            │ Ivy       │           │
+│ Esperanto           │           │ Ludoviko  │
 │ French              │ Céline    │ Mathieu   │
 │ French (Canada)     │ Chantal   │           │
 │ German              │ Marlene   │ Hans      │
 │ Icelandic           │ Dóra      │ Karl      │
 │ Italian             │ Carla     │ Giorgio   │
-│ Norwegian           │ Liv       │           │
-│ Polish              │ Ewa       │ Jacek     │
-│                     │ Maja      │ Jan       │
-│                     │ Agnieszka │           │
+│ Polish              │ Ewa       │ IVONADemo │
+│                     │ Maja      │ Jacek     │
+│                     │ Agnieszka │ Jan       │
+│                     │ Zosia     │ Krzysztof │
 │ Portuguese          │           │ Cristiano │
 │ Portuguese (Brazil) │ Vitória   │ Ricardo   │
 │ Romanian            │ Carmen    │           │

@@ -30,14 +30,14 @@ int wmain(int argc, wchar_t* argv[]) {
 	// pVoice->Speak requires wchar_t
 	// https://stackoverflow.com/questions/4775437/read-unicode-utf-8-file-into-wstring
 
-    const std::locale emptyLocale = std::locale::empty();
-    typedef std::codecvt_utf8<wchar_t> converterType;
-    const converterType* converter = new converterType;
-    const std::locale utf8Locale = std::locale(emptyLocale, converter);
+	const std::locale emptyLocale = std::locale::empty();
+	typedef std::codecvt_utf8<wchar_t> converterType;
+	const converterType* converter = new converterType;
+	const std::locale utf8Locale = std::locale(emptyLocale, converter);
 	std::wifstream stream(arguments.inputFile);
-    stream.imbue(utf8Locale);
-    std::wstring inputText;
-    std::getline(stream, inputText);
+	stream.imbue(utf8Locale);
+	std::wstring inputText;
+	std::getline(stream, inputText);
 
 	HRESULT hr;
 	// set sample rate
@@ -59,7 +59,7 @@ int wmain(int argc, wchar_t* argv[]) {
 			pStream->Release();
 		}
 	}
-    pVoice->Release();
+	pVoice->Release();
 
 	// uninitialize COM
 	::CoUninitialize();

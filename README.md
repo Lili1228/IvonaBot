@@ -14,7 +14,7 @@ Do obsługi SAPI5 na Linuxie:
 Do obsługi plików midi:
 * timidity
 
-W repozytorium znajduje się demo IVONY Jacek na Linuxa, z osobną licencją w pliku bin/licencja_ivona_demo.txt, oraz bardzo prosty program w C++ do generowania plików dźwiękowych syntezy SAPI5, którego kod znajduje się w folderze generate_sapi5.
+W repozytorium znajduje się demo IVONY Jacek na Linuxa, z osobną licencją w pliku bin/licencja\_ivona\_demo.txt, oraz bardzo prosty program w C++ do generowania plików dźwiękowych syntezy SAPI5, którego kod znajduje się w folderze generate\_sapi5.
 
 # Instalacja
 Poniższe polecenie instaluje SAPI5, wymagane do znakomitej większości wersji Ivony, wraz z trzema głosami Microsoftu (w tym Sam):
@@ -25,7 +25,7 @@ Teraz można zainstalować dowolną wersję IVONY (bądź inne głosy).
 
 # Konfiguracja
 
-Na początku pliku znajduje się zmienna `TOKEN`, do której należy wpisać swój token do bota. Tuż pod nią znajduje się zmienna `queue_size`, która wyznacza rozmiar kolejki (domyślnie 3). Bot nie znajduje automatycznie głosów, należy je podać w zmiennej `voices`. Jeśli głos ma jakiś znak spoza ASCII, należy go dodać do zmiennej `voices_diacritics` w postaci (głos zapisany w ASCII, głos ze znakami spoza ASCII). Nazwy nie muszą być pełne.
+Na początku pliku znajduje się zmienna `TOKEN`, do której należy wpisać swój token do bota. Tuż pod nią znajduje się zmienna `queue_size`, która wyznacza rozmiar kolejki (domyślnie 3). Bot nie znajduje automatycznie głosów, należy je podać w zmiennej `voices` znajdującej się w pliku `ivona.py`. Jeśli głos ma jakiś znak spoza ASCII, należy go dodać do zmiennej `voices_diacritics` w postaci (głos zapisany w ASCII, głos ze znakami spoza ASCII). Nazwy nie muszą być pełne.
 
 # Użycie
 
@@ -33,7 +33,7 @@ Na początku pliku znajduje się zmienna `TOKEN`, do której należy wpisać sw�
 
 `.(nazwa głosu) [tekst]`, `.(nazwa głosu) [plik tekstowy]` - wygenerowanie pliku dźwiękowego z użyciem wskazanego głosu i wysłanie na kanał
 
-`.play ivona [tekst]`, `.play ivona [plik tekstowy]` - wygenerowanie pliku dźwiękowego z użyciem wskazanego głosu i odtworzenie na kanale głosowym
+`.play (nazwa głosu) [tekst]`, `.play (nazwa głosu) [plik tekstowy]` - wygenerowanie pliku dźwiękowego z użyciem wskazanego głosu i odtworzenie na kanale głosowym
 
 `.voices` - wysłanie listy dostępnych głosów z pliku etc/voices.txt
 
