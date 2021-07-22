@@ -26,7 +26,7 @@ def create_tts(text, voice, filename) -> str:
 		f = open('/tmp/' + filename, 'w')
 	f.write(text)
 	f.close()
-	if voice in ('ivona', 'ewa', 'anna', 'lili'):
+	if voice in ('anna', 'lili'):
 		arg = ' -16'
 	if voice == 'ivonademo':
 		os.system('bin/ivonacl -f /tmp/' + filename + ' -l bin/libvoice_pl_jl16demo.so --dur ' + arg + ' cache/ivonademo/' + filename + '.wav')

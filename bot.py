@@ -24,6 +24,7 @@ bot = commands.Bot('.', help_command = None, strip_after_prefix = True, case_ins
 error_title = ':x: Błąd!'
 
 queue={}
+voices_diacritics = {'penélope': 'penelope', 'céline': 'celine', 'geraint': 'geraintcy', 'gwyneth': 'gwynethcy', 'vitória': 'vitoria', 'dóra': 'dora'}
 
 async def send_and_delete(channel, text = None, embed = None, timeout = 10):
 	if channel.type == text and not channel.permissions_for(channel.guild.get_member(bot.user.id)).send_messages:
